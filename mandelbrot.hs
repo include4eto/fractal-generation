@@ -22,7 +22,8 @@ mapNum x a b c d = c + coef * (d - c)
 white' = [255, 255, 255, 255]
 black' = [255, 0, 0, 0]
 pesho :: Integral a => [a]
-pesho = map fromIntegral $ concat [if (mandelbrot z c 5) then white' else black' | x <- [0..800], y <- [0..600], let c = ((mapNum x 0 800 0 1), (mapNum y 0 600 0 1)), let z = (0, 0)]
+pesho = map fromIntegral $ concat [if (mandelbrot z c 5) then white' else black' | y <- [0..599], x <- [0..799], let c = ((mapNum x 0 800 (-1.5) 1.5), (mapNum y 0 600 (-1.5) 1.5)), let z = (0, 0)]
+-- pesho = map fromIntegral $ concat [if (y `mod` 2 == 0) then white' else black' | y <- [0..599], x <- [0..799]]
 
 -- foo = Bitmap 800 600 pesho False
 foo = bitmapOfByteString 800 600 (pack pesho) False
