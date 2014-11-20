@@ -3,6 +3,8 @@ import Graphics.Gloss.Data.Picture
 import Data.ByteString hiding (concat, putStrLn);
 import Graphics.Gloss.Interface.IO.Animate
 
+data Ico = String :&: Int
+
 gosho :: String -> String
 gosho x = x ++ "asdf"
 
