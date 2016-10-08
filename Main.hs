@@ -23,6 +23,9 @@ dist (a, b) = sqrt (a * a + b * b)
 
 -- Some constant terms definition
 
+defaultBitmapFormat :: BitmapFormat
+defaultBitmapFormat = BitmapFormat BottomToTop PxABGR
+
 title :: String
 title = "Animated Fractal Generation"
 
@@ -106,7 +109,6 @@ data World = World {
     settings :: Settings
 }
 
-
 -- Initialize an empty world
 -- This is the messiest code, because we need conversions for Word8 to work
 -- Map each number from pixel space to normalized space - from 800x600 to
@@ -166,7 +168,7 @@ buildColourArray cache setColour = [if (dist z < threshold) then setColour else 
 convertToPicture :: World -> IO Picture
 convertToPicture (World model _ colourArray _) =
     do
-        return (bitmapOfByteString width height (pack $ map fromIntegral $ concat colourArray) False)
+        return (bitmapOfByteString width height defaultBitmapFormat (pack $ map fromIntegral $ concat colourArray) False)
 
 getSet :: String -> Complex
 getSet "1" = (0, 0)
