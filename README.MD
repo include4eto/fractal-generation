@@ -12,5 +12,12 @@ because it usually impedes performance.
 being generated.
 2. Otherwise, you could select a preset, which I have somewhat carefully chosen.
 
+#### Screenshots
+![alt tag](screenshots/julia_2_100_iterations.png)
+![alt tag](screenshots/julia3_blue_50_iterations.png)
+![alt tag](screenshots/mandelbrot_100_iterations.png)
+![alt tag](screenshots/random1.png)
+![alt tag](screenshots/yet another random.png)
+
 #### Notice
 I've been playing with the random for hours now. Be careful!
